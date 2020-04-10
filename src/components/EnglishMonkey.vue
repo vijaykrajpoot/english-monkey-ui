@@ -10,10 +10,10 @@
             </div>          
           </div>
           <div v-else-if="show===3">
-              <b-button block variant="success"> Good Job </b-button>
+              <b-button block variant="success"> Good Job !!! </b-button>
           </div>
           <div v-else-if="show===4">
-            <b-button block variant="danger"> Wrong Answer!!! </b-button>
+            <b-button block variant="danger"> Wrong Answer !!! </b-button>
          </div>
             
           <hr class="line">
