@@ -1,18 +1,68 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <Header />
+    <EnglishMonkey  v-bind:currentSpelling="spellings[index]" />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Header from './components/Header.vue'
+import EnglishMonkey from './components/EnglishMonkey'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    Header,
+    EnglishMonkey
+  },
+   data(){
+    return{
+      index: 0, 
+      spellings: [
+          {
+            id: 1,
+            spelling : "horse"            
+          },
+          {
+            id: 2,
+            spelling : "lion"            
+          },
+          {
+            id: 3,
+            spelling : "zebra"            
+          },
+          {
+            id: 4,
+            spelling : "cow"            
+          }
+       ],
+    }
+   },
+   mounted: function (){
+     return {
+       spellings: [
+          {
+            id: 1,
+            spelling : "horse"            
+          },
+          {
+            id: 2,
+            spelling : "lion"            
+          },
+          {
+            id: 3,
+            spelling : "zebra"            
+          },
+          {
+            id: 4,
+            spelling : "cow"            
+          }
+       ]
+     }
+
+
   }
+
 }
 </script>
 
