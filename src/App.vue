@@ -1,6 +1,9 @@
 <template>
   <div id="app">
-    <Header />
+    <Navigator/>
+    <hr class="line">
+    <Header/>
+    <hr class="line">
     <EnglishMonkey  v-bind:currentSpelling="spellings[index]" />
   </div>
 </template>
@@ -8,12 +11,14 @@
 <script>
 import Header from './components/Header.vue'
 import EnglishMonkey from './components/EnglishMonkey'
-
+import Navigator from './components/Navigator'
 export default {
   name: 'App',
   components: {
     Header,
+    Navigator,
     EnglishMonkey
+
   },
    data(){
     return{
@@ -72,7 +77,6 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  color: #2c3e50; 
 }
 </style>

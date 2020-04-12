@@ -1,9 +1,31 @@
 <template>
     
     <div> 
-      <b-jumbotron>
+      <b-jumbotron >
+
+          <div role="group" :key="idx" v-for="idx in 5" >
+            <b-input-group class="mt-1" >
+               <template v-slot:prepend>
+                   <b-input-group-text >{{ mySpelling }} </b-input-group-text>
+                </template>
+                  <b-form-input 
+                    id="input-live"
+                    v-model="name"
+                    :state="null"
+                    trim/>
+                  <b-input-group-append>
+                    <b-button variant="success"> Clear </b-button>
+                  </b-input-group-append>
+              </b-input-group>
+        </div>
+        <hr>
+
+
+
+
+        
           <div v-if="show === 1">
-              <b-button block variant="primary"> {{ mySpelling }} </b-button>
+              <b-button block variant="primary"  class="font-weight-bold" > {{ mySpelling }} </b-button>
           </div>
           <div v-else-if="show===2">            
             <b-input-group class="mt-3">
@@ -50,10 +72,11 @@ export default {
   },
   data() {
     return {
+          name: '',
         spellInput:"",
         show: 1,
-        inLetter:"",
-        mySpelling:this.currentSpelling.spelling,      
+        inLetter:""
+              
       }
   },
   methods: {
@@ -79,23 +102,29 @@ export default {
     }
   },
   computed: {
-    atoz() {
-      let letters = []
-      for(let i = "A".charCodeAt(0); i <= "Z".charCodeAt(0); i++) {
-            letters.push(String.fromCharCode([i]))
-          }
-      return letters
+    mySpelling() {
+      return this.currentSpelling.spelling
+      },
+      nameState() {
+        return this.name.length > 2 ? true : false
+      },
+      atoz() {
+        let letters = []
+        for(let i = "A".charCodeAt(0); i <= "Z".charCodeAt(0); i++) {
+              letters.push(String.fromCharCode([i]))
+            }
+        return letters
+      }
     }
-  }
 }
 </script>
 
 
 
-<style scoped>
+<style scoped>  
   .btn_name{
     margin-left:10px;
     margin-right:10px;
 }
-</style>>
+</style>
 
