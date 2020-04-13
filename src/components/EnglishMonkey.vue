@@ -3,21 +3,21 @@
     <div> 
       <b-jumbotron >
 
-          <div role="group" :key="idx" v-for="idx in 5" >
+          <div role="group" >
             <b-input-group class="mt-1" >
                <template v-slot:prepend>
-                   <b-input-group-text >{{ mySpelling }} </b-input-group-text>
+                   <b-input-group-text > {{ mySpelling }} </b-input-group-text>
                 </template>
                   <b-form-input 
                     id="input-live"
                     v-model="name"
-                    :state="null"
+                    :state="nameState"
                     trim/>
-                  <b-input-group-append>
-                    <b-button variant="success"> Clear </b-button>
-                  </b-input-group-append>
+                    <b-button  class="ml-2" variant="success" @click="clearInput"> Clear </b-button>
+                    <b-button class="ml-2" variant="success"> Next Spelling </b-button>                 
               </b-input-group>
-        </div>
+        </div> 
+        
         <hr>
 
 
